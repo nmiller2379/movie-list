@@ -6,8 +6,12 @@ import Display from "./pages/Display/Display";
 import Error from "./pages/Error/Error";
 import Form from "./pages/Form/Form";
 
-
 function App() {
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("You clicked me!");
+  };
+
   return (
     <div className="App">
       <Router>
@@ -15,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Display />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form" element={<Form onClick={handleClick} />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Router>
